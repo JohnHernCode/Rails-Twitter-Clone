@@ -25,6 +25,15 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Bulma CSS Framework based on Flexbox
+gem 'bulma-rails', '~> 0.9.1'
+
+# Simple Form
+gem 'simple_form', '~> 5.1'
+
+# Devise
+gem 'devise', '~> 4.7', '>= 4.7.3'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -42,7 +51,14 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
+
+  # Better Errors
+  gem 'better_errors', '~> 2.9', '>= 2.9.1'
+  # Guard
+  gem 'guard', '~> 2.16', '>= 2.16.2'
+  # Guard livereload
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
+  end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
