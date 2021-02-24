@@ -1,28 +1,32 @@
 <div class="column is-half">
+<% if user_signed_in? %>
   <article class="media box">
     <figure class="media-left">
       <p class="image is-64x64">
-        <img src="https://i.pinimg.com/736x/e2/d5/80/e2d5801fc2023a613495a2f57435a6c4.jpg">
+        <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
       </p>
     </figure>
     <div class="media-content">
       <%= render 'tweets/form'%>
     </div>
   </article>
+  <% end %>
+
   <% @tweets.each do | tweet | %>
     <div class="box">
       <article class="media">
         <div class="media-left">
           <figure class="image is-64x64">
-            <img src="https://i.pinimg.com/736x/e2/d5/80/e2d5801fc2023a613495a2f57435a6c4.jpg">
+            <%= gravatar_image_tag(tweet.user.email, size: 64, alt: tweet.user.name) %>
           </figure>
         </div>
         <div class="media-content">
           <div class="content">
-            <strong>NAME HERE</strong><br />
-            <small>@user</small><br />
+            <strong><%= tweet.user.name %></strong><br />
+            <small>@<%= tweet.user.username %></small><br />
             <p><%= tweet.tweet %></p>
           </div>
+          <% if user_signed_in? %>
           <nav class="level">
             <div class="level-left is-mobile">
               <%= link_to tweet, class: "level-item" do %>
@@ -37,6 +41,7 @@
               <% end %>
             </div>
           </nav>
+          <% end %>
         </div>
       </article>
     </div>
